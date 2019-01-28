@@ -22,13 +22,26 @@ class MySum
 		print_r($sum);
 	}
 
+	function getByWhile()
+	{
+		$n = $this->n;
+		$sum = 0;
+		$i = 1;
+		while ($i <= $n) {
+			$sum += $i;
+			$i++;
+		}
+
+		print_r($sum);
+	}
+
 	function getByRecursive($n)
 	{
 		if ($n == 1) {
 			return $n;
 		}
 		
-		return $n + $this->getSumByRecursive($n-1);
+		return $n + $this->getByRecursive($n-1);
 	}
 }
 
@@ -38,4 +51,7 @@ echo $run->getByFor();
 echo "</br>";
 
 echo $run->getByRecursive(10);
+echo "</br>";
+
+echo $run->getByWhile();
 echo "</br>";
